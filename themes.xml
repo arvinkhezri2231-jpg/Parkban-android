@@ -1,0 +1,8 @@
+<resources>
+<style name="Theme.ParkBan" parent="Theme.AppCompat.Light.NoActionBar">
+    <item name="android:fontFamily">sans</item><item name="android:windowLightStatusBar">false</item>
+    <item name="android:statusBarColor">@color/parkban_dark</item><item name="android:navigationBarColor">@color/parkban_dark</item>
+    <item name="android:windowActionModeOverlay">true</item>
+</style>
+<style name="Theme.ParkBan.Starting" parent="Theme.SplashScreen"><item name="windowSplashScreenBackground">@color/parkban_blue</item><item name="windowSplashScreenAnimatedIcon">@drawable/ic_parkban_logo</item><item name="postSplashScreenTheme">@style/Theme.ParkBan</item></style>
+</resources>

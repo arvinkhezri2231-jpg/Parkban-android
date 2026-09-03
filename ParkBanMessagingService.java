@@ -1,0 +1,5 @@
+package ir.parkban.app;
+import android.app.*;import android.content.*;import androidx.core.app.NotificationCompat;import com.google.firebase.messaging.FirebaseMessagingService;import com.google.firebase.messaging.RemoteMessage;
+public class ParkBanMessagingService extends FirebaseMessagingService {
+ public void onMessageReceived(RemoteMessage m){ String title=m.getNotification()!=null?m.getNotification().getTitle():m.getData().get("title"); String body=m.getNotification()!=null?m.getNotification().getBody():m.getData().get("body"); if(title==null) title="پارک‌بان"; if(body==null) body="پیام جدید"; NotificationManager nm=(NotificationManager)getSystemService(NOTIFICATION_SERVICE); if(android.os.Build.VERSION.SDK_INT>=26) nm.createNotificationChannel(new NotificationChannel("parkban","پارک‌بان",NotificationManager.IMPORTANCE_DEFAULT)); NotificationCompat.Builder b=new NotificationCompat.Builder(this,"parkban").setSmallIcon(ir.parkban.app.R.drawable.ic_stat_parkban).setContentTitle(title).setContentText(body).setAutoCancel(true); nm.notify((int)System.currentTimeMillis(),b.build()); }
+}

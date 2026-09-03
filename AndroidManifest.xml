@@ -1,0 +1,9 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+ <uses-permission android:name="android.permission.INTERNET"/><uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/><uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
+ <application android:theme="@style/Theme.ParkBan.Starting" android:label="پارک‌بان" android:icon="@drawable/ic_parkban_logo" android:usesCleartextTraffic="true" android:allowBackup="false">
+  <meta-data android:name="com.google.firebase.messaging.default_notification_icon" android:resource="@drawable/ic_stat_parkban"/>
+  <meta-data android:name="com.google.firebase.messaging.default_notification_color" android:resource="@color/parkban_blue"/>
+  <service android:name=".ParkBanMessagingService" android:exported="false"><intent-filter><action android:name="com.google.firebase.MESSAGING_EVENT"/></intent-filter></service>
+  <activity android:name=".MainActivity" android:exported="true"><intent-filter><action android:name="android.intent.action.MAIN"/><category android:name="android.intent.category.LAUNCHER"/></intent-filter></activity>
+ </application>
+</manifest>
