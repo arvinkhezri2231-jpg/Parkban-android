@@ -1,32 +1,12 @@
-# پارک‌بان — پروژه Android و Build خودکار APK
+# ParkBan Android Auto Build
 
-این پروژه فقط برای **Android** است.
+این بسته شامل Workflow واقعی GitHub Actions است.
 
-## ساخت خودکار APK
+## نصب در GitHub
+1. در Repository به `.github/workflows/` بروید.
+2. فایل `android.yml` را در آنجا قرار دهید.
+3. به Actions بروید و `Build ParkBan APK` را اجرا کنید.
+4. بعد از سبز شدن Build، از بخش Artifacts فایل `ParkBan-APK` را دانلود کنید.
+5. داخل ZIP، فایل `ParkBan.apk` قرار دارد.
 
-فایل `.github/workflows/build-apk.yml` با هر Push روی شاخه `main` یا `master` و همچنین با اجرای دستی Workflow، APK را می‌سازد.
-
-### خروجی اصلی برای نصب روی گوشی
-
-`ParkBan.apk` از نوع **Debug APK** است و برای نصب و تست روی گوشی مناسب است.
-
-### خروجی Release
-
-`app-release-unsigned.apk` نیز تولید می‌شود، اما برای انتشار رسمی در Google Play یا نصب به‌عنوان نسخه نهایی بهتر است با کلید امضای خودتان Sign شود.
-
-## فعال‌سازی Push Notification با Firebase
-
-ساخت APK بدون Firebase هم انجام می‌شود. برای فعال‌شدن واقعی FCM:
-
-1. در Firebase یک Android App با package name زیر بسازید:
-   `ir.parkban.app`
-2. فایل `google-services.json` را تهیه کنید.
-3. محتوای Base64 آن را در GitHub Actions Secret با نام زیر قرار دهید:
-   `GOOGLE_SERVICES_JSON_BASE64`
-4. Workflow را دوباره اجرا کنید.
-
-Workflow در صورت وجود این Secret، فایل Firebase را قبل از Build می‌سازد و Google Services plugin را خودکار فعال می‌کند.
-
-## نکته امنیتی
-
-`google-services.json` و کلید امضای APK را داخل مخزن عمومی GitHub قرار ندهید.
+این Workflow خودش پروژه Android را هنگام Build ایجاد می‌کند؛ بنابراین Repository لازم نیست فایل‌های Gradle را از قبل داشته باشد.
